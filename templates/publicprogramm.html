@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="t-title">
+	<h1>{{ center.name }} </h1>
+</div>
+
+<div class="creator">
+	<strong>Created By</strong> <span class="name">{{ creator.name }}</span>
+</div>
+
+<div class="vline"></div>
+
+<div class="item-area">
+			{% for programm in programms %}
+				<div class="item-card no-border shadow">
+
+					<div class="item-body">
+
+						<div class="item-title">
+							<h3>
+								{{programm.name}}
+							</h3>
+						</div>
+
+						<div class="sub-item">
+							<p> <strong>About: </strong> {{programm.description}}</p>
+							<p> <strong>Duration: </strong> {{programm.duration}}</p>
+							<p> <strong>Programm Type: </strong> {{programm.pType}}</p>
+							<p> <strong>Price: </strong> {{programm.price}}</p>
+						</div>
+
+					</div>
+				</div>
+			{% endfor %}
+</div>
+					
+{% endblock %}

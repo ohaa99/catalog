@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="t-title">
+		<h1>Edit {{center.name}}</h1>
+	</div>
+	<div class="form-layer">
+		<form action="{{ url_for('editCenter',center_id = center.id)}}" method = "POST">
+			<div class="form-body">
+
+				<label for="name">Name:</label>
+				<input type ="text" class="form-control" name="name" placeholder="{{center.name}}">
+				
+				<label for="about">About:</label>
+				<input type ="text"  class="form-control"name="about" placeholder="{{center.description}}">
+
+				<label for="fields">Fields:</label>
+				<input type ="text" class="form-control" name="fields" placeholder="{{center.fields}}">
+
+				<label for="address">Address:</label>
+				<input type ="text" class="form-control" name="address" placeholder="{{center.address}}">
+
+
+				<button type="submit" class="default-btn"> Save</button>
+
+				<a href = '{{url_for("showCenters")}}'>
+				<button type="button" class="default-btn"> Cancel</button>
+				</a>
+			</div>
+		</form>
+	</div>
+{% endblock %}

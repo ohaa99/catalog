@@ -1,0 +1,64 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+
+	<div class="t-title">
+		<h1>Edit Programm</h1>
+	</div>
+
+	<div class="vline"></div>
+
+	<div class="form-layer">
+		<form action="#" method = "post">
+
+			<div class="form-body vertical-layout">
+
+
+				<label for="name">Name:</label>
+				<input type ="text" maxlength="100" name="name" value="{{programm.name }}">
+
+
+				<label for="description">About:</label>
+				<textarea  maxlength="250" rows="3" name="description">{{programm.description}}</textarea>
+
+				<label for="duration">Duration:</label>
+				<input type ="text"  maxlength="10" name="duration" value="{{programm.duration }}">	
+
+
+				<label for="price">Price:</label>
+				<input type ="text" maxlength="10"  name="price" value="{{programm.price}}">
+				
+
+				<div class="item-card">
+					<div class="item-body vertical-layout">
+						<label for="pType">Programm Type:</label>
+						<label>
+							<input type="radio" name="pType" id="type1" value="Short Course" {% if programm.pType == 'Short Course'%}checked{%endif%}>Short Course
+						  </label>
+						  <label>
+							<input type="radio" name="pType" id="type2" value="Diploma" {% if programm.pType == 'diploma' %}checked{%endif%}>Diploma 
+						  </label>
+						  <label>
+							<input type="radio" name="pType" id="type3" value="Higher Diploma" {% if programm.pType == 'Higher Diploma' %}checked{%endif%}>Higher Diploma 
+						  </label>
+						  <label>
+							<input type="radio" name="pType" id="type4" value="International Certificate" {%if programm.pType =='International Certificate'%} checked {%endif%} >International Certificate
+						  </label>
+					</div>
+				</div>
+
+				
+				<button class="default-btn green"  id="submit" type="submit">
+				Save</button>
+
+				<a href = "{{url_for('showCenters')}}">
+				<button class="default-btn red" type="button">
+					<span  aria-hidden="true"></span> Cancel
+				</button>
+				</a>
+				
+			</div>
+		</form>
+	</div>
+{% endblock %}

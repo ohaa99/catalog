@@ -1,0 +1,67 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+
+	<div class="t-title">
+		<h1>New Programm</h1>
+	</div>
+
+	<div class="vline"></div>
+
+	<div class="form-layer">
+
+		<form action="#" method = "post">
+
+			<div class="form-body vertical-layout">
+				
+				<label for="name">Name:</label>
+				<input type ="text" maxlength="50"  name="name"placeholder="Name of the programm">
+
+				<div class="margin-tb-16"></div>
+
+				<label for="description">About:</label>
+				<textarea  maxlength="250" rows="3" name="description" placeholder="About the programm"></textarea>
+
+				<div class="margin-tb-16"></div>
+
+				<label for="duration">Duration:</label>
+				<input type ="text"  maxlength="10" name="duration" placeholder="Duration in Hour">					
+
+				<div class="margin-tb-16"></div>
+
+				<label for="price">Price:</label>
+				<input type ="text"  maxlength="10" name="price" placeholder="Price in $">
+
+				<div class="margin-tb-16"></div>
+				
+				
+				<div class="item-card">
+					<div class="item-body vertical-layout">
+						<label for="pType">Programm Type:</label>
+						<label>
+							<input type="radio" name="pType" id="type1" value="Short Course">Short Course
+						  </label>
+						  <label>
+							<input type="radio" name="pType" id="type2" value="Diploma">Diploma(7 Months) 
+						  </label>
+						  <label>
+							<input type="radio" name="pType" id="type3" value="Higher Diploma">Higher Diploma 
+						  </label>
+						  <label>
+							<input type="radio" name="pType" id="type4" value="International Certificate">International Certificate
+						  </label>
+					</div>
+				</div>
+
+
+				<button type="submit" class="default-btn green" id="submit" type="submit">
+					Create
+				</button>
+
+			</div>
+			
+			
+		</form>
+	</div>
+{% endblock %}

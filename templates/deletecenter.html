@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+
+<div class="message-box">
+	<h2> Are you sure you want to delete <span class="green-text">'{{center.name}}'</span>? </h2>
+
+	<form action="#" method = 'post'>
+
+		<button class="default-btn green" type="submit">
+		   Delete
+		</button>
+
+		<a href = '{{url_for("showCenters")}}'>
+			<button class="default-btn red" type="button">
+				Cancel
+			</button>
+		</a>
+
+	</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="t-title">
+	<h1>{{ center.name }} </h1>
+</div>
+
+<div class="creator">
+	<strong>Created By</strong> <span class="name">{{ creator.name }}</span>
+</div>
+
+<div class="pro-ctrl-buttons space-between">
+
+	<div class="btn-group">
+		<a href="{{url_for('editCenter', center_id = center.id )}}">
+			<button class="default-btn">
+				<span>Edit Center</span>
+			</button>
+		</a>
+	
+		<a href="{{url_for('deleteCenter', center_id = center.id )}}">
+					<button class="default-btn red">
+					<span>Delete Center</span>
+					</button>
+		</a>
+	</div>
+	
+
+	<a href="{{url_for('newProgramm', center_id = center.id )}}">
+		<button class="default-btn green">
+			<span>Add Programm</span>
+		</button>
+	</a>
+</div>
+
+<div class="vline"></div>
+
+
+
+<div>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			
+			<ul class="flash">
+			{% for message in messages %}
+				<li> <strong> {{ message }} </strong> </li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+    {% endwith %}
+
+</div>
+
+<div class="item-area">
+			{% for programm in programms %}
+				<div class="item-card no-border shadow">
+
+					<div class="item-body">
+
+						<div class="item-title">
+							<h3>
+								{{programm.name}}
+							</h3>
+						</div>
+
+						<div class="sub-item">
+							<p> <strong>About: </strong> {{programm.description}}</p>
+							<p> <strong>Duration: </strong> {{programm.duration}}</p>
+							<p> <strong>Programm Type: </strong> {{programm.pType}}</p>
+							<p> <strong>Price: </strong> {{programm.price}}</p>
+						</div>
+	
+						<div class="">
+							
+							<a href='{{url_for("editProgramm", center_id = center.id, programm_id=programm.id ) }}'>
+								<button class="default-btn green mono-font">
+							       Edit
+								</button>
+							</a> 
+						
+	
+						
+						<a href='{{url_for("deleteProgramm", center_id = center.id, programm_id=programm.id ) }}'>
+							<button class="default-btn red mono-font ">
+						    	Delete
+						    </button>
+							
+						</a>
+					   </div>
+	
+					</div>
+				</div>
+			{% endfor %}
+</div>
+					
+{% endblock %}

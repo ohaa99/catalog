@@ -1,0 +1,64 @@
+
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+	<div class="t-title">
+		<h1> All Centers</h1>
+	</div>
+
+	<div>
+		{% with messages = get_flashed_messages() %}
+		
+			{% if messages %}
+			
+				<ul class="flash">
+				{% for message in messages %}
+
+					<li> 
+						<strong> {{ message }} </strong>
+					</li>
+
+				{% endfor %}
+				</ul>
+
+			{% endif %}
+			
+		{% endwith %}
+	</div>
+	
+    <div class="vline"></div>
+	<div class="btn-add-area">
+		<div>
+			<a href="{{url_for('newCenter')}}">
+				<button>
+					<span> Add Center</span>
+				</button>
+			</a>
+		</div>
+	</div>
+
+
+	<div class="item-area">
+
+		{% for center in centers %}
+			<a class="item-card" href = "{{url_for('showProgramm', center_id = center.id)}}">
+				<div class="item-body">
+
+					<div class="item-title">
+						<h3>{{center.name}}</h3>
+					</div>
+
+					<div class="sub-item">
+						<p class="desc"> <strong>About: </strong> {{center.description}}</p>
+					    <p class="fields"> <strong>Fields: </strong> {{center.fields}}</p>
+					    <p class="address"> <strong>Address: </strong> {{center.address}}</p>
+					</div>
+
+
+				</div>
+			</a>
+		{% endfor %}
+		
+	</div>
+{% endblock %}
